@@ -7,7 +7,6 @@ const Tasks = () => (
   <div>
     <Sidebar />
     <div className="main-content">
-      <Navbar />
       <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.6}}>
         <h2>Task Manager</h2>
         <div className="cards">

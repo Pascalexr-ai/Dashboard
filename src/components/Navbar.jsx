@@ -1,30 +1,45 @@
+import { useState } from "react";
 import DarkModeToggle from "./DarkModeToggle";
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebar }) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = () => {
+    setIsActive(!isActive);
+    if (toggleSidebar) toggleSidebar(); // let parent open/close sidebar
+  };
+
   return (
     <div className="navbar">
-      {/* Left side: logo or title */}
-      <div className="navbar-left">
-        <h2>Dashboard</h2>
+      {/* Hamburger Menu */}
+      <div
+        className={`hamburger ${isActive ? "active" : ""}`}
+        onClick={handleClick}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
-      {/* Center: Search Bar */}
-      <div className="search-container">
-        <input className="search-input" placeholder="Search..." type="text" />
-        <button className="search-button">
-          <i className="fa fa-search"></i>
-        </button>
-      </div>
+      {/* Title */}
+      <h2>Dashboard</h2>
 
-      {/* Right side: Dark Mode Toggle separate */}
-      <div className="dark-toggle-wrapper">
-        <DarkModeToggle className="dark-toggle" />
+      {/* Search + Dark Toggle */}
+      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div className="search-container">
+          <input type="text" className="search-input" placeholder="Search..." />
+          <button className="search-button">
+            <i className="fas fa-search"></i>
+          </button>
+        </div>
+        <DarkModeToggle />
       </div>
     </div>
   );
 };
 
 export default Navbar;
+
 
 
 

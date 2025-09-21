@@ -48,7 +48,7 @@ const Dashboard = () => {
 
       <Sidebar />
       <div className="main-content">
-        <Navbar />
+
 
         <motion.div
           className="cards"
