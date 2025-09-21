@@ -1,41 +1,14 @@
 /* === BASE === */
 body {
   background: linear-gradient(135deg, #6a11cb, #2575fc);
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
-  margin: 0;
 }
 
 /* === SIDEBAR === */
-.sidebar {
-  width: 250px;
-  background: linear-gradient(180deg, #6a11cb 0%, #2575fc 100%);
-  color: white;
-  min-height: 100vh;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  transition: width 0.3s ease, transform 0.3s ease;
-  z-index: 200;
-}
-.sidebar h1 {
-  font-size: 22px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-.sidebar ul { list-style: none; padding: 0; }
-.sidebar li {
-  padding: 12px 15px;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-}
-.sidebar li:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: translateX(5px);
-}
-.sidebar a { color: white; text-decoration: none; }
+
+
+
+
+
 
 /* === HAMBURGER === */
 .hamburger {
@@ -117,15 +90,7 @@ tr:hover { background: #f0f7ff; }
 
 /* === RESPONSIVE === */
 @media screen and (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    width: 220px;
-  }
-  .sidebar.open { transform: translateX(0); }
-  .navbar { margin-left: 0; }
-  .main-content { margin-left: 0; }
-  .hamburger { display: flex; }
-  .cards { flex-direction: column; }
+ 
 }
 
 @media screen and (max-width: 480px) {
@@ -244,6 +209,59 @@ tr:hover { background: #f0f7ff; }
   .search-container {
     width: 180px;
   }
+}
+
+/* Sidebar Container */
+.sidebar {
+  width: 240px;
+  min-height: 100vh; /* full screen height */
+  background: #111;  /* dark background */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.4);
+  position: fixed; /* stays on the left */
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* Sidebar Links */
+.sidebar a {
+  color: #bbb;
+  text-decoration: none;
+  padding: 12px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: block;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: #222;
+  color: #fff;
+}
+
+/* Active Link */
+.sidebar a.active {
+  background: #444;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Sidebar Header */
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #e63946; /* highlight color */
+}
+
+/* For the main content next to sidebar */
+.main-content {
+  margin-left: 240px; /* push content aside */
+  padding: 20px;
 }
 
 
